@@ -5,7 +5,6 @@ const path = require('path');
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
 
-
 //connexion à Mongo
 mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -14,8 +13,6 @@ mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.m
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
-
-app.use(express.json());
 
 //pour problème CORS
 app.use((req, res, next) => {
@@ -30,6 +27,8 @@ app.use(express.json());
 
 //pour multer
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
+//routes
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', saucesRoutes);
 

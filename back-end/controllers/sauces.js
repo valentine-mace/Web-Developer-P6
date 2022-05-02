@@ -35,7 +35,7 @@ exports.getOneSauce = (req, res, next) => {
   );
 };
 
-//modifier une sauce
+//modifier une sauce - PROB ICI
 exports.modifyOneSauce = (req, res, next) => {
   const sauceObject = req.file ?
   {
@@ -76,14 +76,10 @@ exports.getAllSauces = (req, res, next) => {
   );
 };
 
+//liker/disliker les sauces 
 exports.likeSauce = (req, res, next) => {
-  const thingObject = JSON.parse(req.body.thing);
-  delete thingObject._id;
-  const thing = new Thing({
-    ...thingObject,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-  });
-  thing.save()
-    .then(() => res.status(201).json({ message: 'Like enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
-};
+  let like = req.body.like
+  let userId = req.body.userId
+  let sauceId = req.params.id
+
+}
