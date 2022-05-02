@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const app = express();
 
 mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -9,13 +10,8 @@ mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.m
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
-const app = express();
-
-
-//Pour gérer la requête POST venant de l'application front-end,
-//on a besoin d'en extraire le corps JSON
-app.use(express.json());
-
-
+app.use((req, res) => {
+   res.json({ message: 'Votre requête a bien été reçue !' }); 
+});
 
 module.exports = app;
