@@ -1,10 +1,8 @@
 const bcrypt = require('bcrypt');
-
 const User = require('../models/user');
-
 const jwt = require('jsonwebtoken');
 
-
+//création de nouveau compte
 exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
@@ -12,12 +10,13 @@ exports.signup = (req, res, next) => {
         email: req.body.email,
         password: hash
       });
-      console.log(email);
       user.save()
         .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
         .catch(error => res.status(400).json({ error }));
     })
-    .catch(error => res.status(500).json({ error }));
+    .catch(error => 
+      res.status(500).json({ error }),
+      );
 };
 
 //nous utilisons la fonction sign de jsonwebtoken pour encoder un nouveau token ;
@@ -28,6 +27,7 @@ exports.signup = (req, res, next) => {
 //L'utilisateur devra donc se reconnecter au bout de 24 heures ;
 //nous renvoyons le token au front-end avec notre réponse.
 
+//connexion avec son compte + réception token secret
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then(user => {

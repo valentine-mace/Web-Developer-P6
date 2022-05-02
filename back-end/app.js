@@ -20,6 +20,7 @@ res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OP
 next();
 });
 
+
 app.use('/api/auth', userRoutes);
 
 module.exports = app;
