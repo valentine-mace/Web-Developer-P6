@@ -4,8 +4,6 @@ const bodyParser =  require("body-parser");
 const path = require('path');
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
-var helmet = require('helmet');
-app.use(helmet());
 
 //connexion à Mongo
 mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
