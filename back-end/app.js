@@ -4,9 +4,13 @@ const bodyParser =  require("body-parser");
 const path = require('path');
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
+const dotenv = require("dotenv");
+dotenv.config();
+
+const chemin = process.env.chemin;
 
 //connexion à Mongo
-mongoose.connect('mongodb+srv://valentine_mace:MONGOproject2022@project6.llep7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(chemin,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
