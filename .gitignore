@@ -1,6 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#
+#on sécurise le dossier images et le fichier .env en les bloquant de github
 /back-end/images/
 /back-end/.env
 

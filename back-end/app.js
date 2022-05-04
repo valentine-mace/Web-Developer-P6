@@ -7,6 +7,7 @@ const saucesRoutes = require('./routes/sauces');
 const dotenv = require("dotenv");
 dotenv.config();
 
+//on récupère le chemin de Mongo
 const chemin = process.env.chemin;
 
 //connexion à Mongo
