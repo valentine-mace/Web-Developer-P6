@@ -2,7 +2,7 @@
 
 #
 /back-end/images/
-/.env/
+/.env
 
 # Compiled output
 /dist
